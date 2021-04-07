@@ -1,0 +1,156 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Скрипты для определения гео-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="//api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
+
+<style>
+/*Базовые стили*/
+body {padding:0px; margin:0px; border:0px;}
+h1, h2, h3, h4, h5, h6 {font-family: Verdana, Geneva, Tahoma, sans-serif; font-size:100%;}
+h1 {font-size:28px; font-weight:600; padding:0px; margin: 5px 0px; padding:10px 0px; line-height: 1.52;}
+h2 {font-size:24px; font-weight:600; padding:0px; margin: 5px 0px; padding:10px 0px; line-height: 1.52;}
+h3 {font-size:20px; font-weight:600; padding:0px; margin: 5px 0px; padding:10px 0px; line-height: 1.52;}
+h4 {font-size:18px; font-weight:400; padding:0px; margin: 5px 0px; padding:10px 0px;}
+h5 {font-size:16px; font-weight:400; padding:0px; margin: 5px 0px; padding:10px 0px;}
+h6 {font-size:14px; font-weight:400; padding:0px; margin: 5px 0px; padding:10px 0px;}
+.page-container {
+width: 100%;
+margin: 0 auto !important;
+max-width: 1080px;
+padding-left: 0px;
+padding-right: 0px;
+margin-left: 0px;
+margin-right: 0px;
+}
+.main-block {
+    padding:20px 10px 30px 10px;
+    background:#222;
+}
+
+li {font-size:16px; padding-top:10px;}
+.check {
+    display:inline-block; background:#e0cf12; border-radius:50%; padding:1px; text-align:center; color:#000; width:24px; max-width:24px; height:24px; min-height:24px;
+    }
+@media only screen and (max-width: 599px) {
+    .header-1 {font-size:16px;} 
+    .header-2 {font-size:13px;} 
+}
+
+.grid {margin:0 auto;}
+.flex {display:flex; height:100%; justify-content: center; align-items: center;}
+.grid .g {padding:15px; border:0px solid #ccc;}
+</style>
+</head>
+<body>
+<div class="page-container">
+
+<!--Двойной grid блок с переносом start-->
+<style>  
+    .grid-1 {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 70px;
+        background:#222;
+    }
+    .header-1 {font-size:16px; justify-content:flex-start; align-items: center; font-size:22px; font-weight: inherit; font-style: ;} 
+    .header-2 {justify-content:flex-end; font-size:16px; font-weight: inherit;}
+</style>
+<div class="grid grid-1">
+    <div class="g">
+        <div class="flex header-1" style="justify-content:left;">
+            <img src="https://storage.googleapis.com/urist/logo_1.png" width="180px">
+        </div>
+    </div>
+    <div class="g">
+        <div class="flex header-2">
+            <div style="text-align:right;">
+            <span style="font-size:15px; color:#fff;">Горячая линия: <br>
+                <a style="font-size:16px; color:#fff;" href="tel:8-800-600-8259"><strong>8-800-600-8259</strong></a>
+            </span>
+                <br><span id="user-city"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Двойной grid блок без переноса end-->
+
+<!--Двойной grid блок с переносом start-->
+<style>
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-rows: repeat(2, auto);
+    }
+    .title {display:block; width: 100%; text-align:left;}
+    .title2 {display:block; width: 100%; text-align:center;}
+    @media only screen and (max-width: 599px) {
+    
+    }
+</style>
+    
+<div class="grid grid-2">
+    <div class="g" style="padding: 40px 20px 40px 20px">
+        <div class="flex">
+            <div class="title">
+                <h1 class="is-heading" style="color:#000;">
+                    Юридическая помощь<br>Поможем списать долги законно!
+                </h1>
+                <br>
+                <ul>
+                    <li><span class="check">✓</span> Проводим бесплатные консультации, предлагаем варианты решения</li>
+                    <li><span class="check">✓</span> Работаем со сложными случаями, прописываем гарантии в договоре</li>
+                    <li><span class="check">✓</span> Одна из крупнейших компаний по банкротству в РФ</li>
+                    <li><span class="check">✓</span> Более 200 юристов, тысячи дел в производстве</li>
+                    <li><span class="check">✓</span> Суммы от 150 тыс. до 500 млн. рублей</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="g"
+        style="padding: 40px 40px 40px 40px; background: url(https://storage.googleapis.com/urist/b2_bg.jpg); background-size: cover; color:#fff;">
+        <div class="flex">
+            <div class="title2">
+                <h2 class="is-heading">
+                    ГОРЯЧАЯ ЛИНИЯ
+                </h2>
+                <span id="user-city3"></span>
+                <h2 style="padding-top:10px;">
+                    8 (800) 600-5289
+                </h2>
+                <div style="padding:15px 0px;">Звонок Бесплатный</div>
+
+                <div style="text-align:center;">
+                    <a href="tel:8-800-600-8259">
+                        <div
+                            style="display:inline-block; padding:10px 25px; background:#32a852; border-radius:2px; font-size:16px; color:#fff;">
+                            позвонить <span>☎</span></div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--Двойной grid блок с переносом end-->
+
+<div class="main-block">
+<div style="text-align:center;">
+    <h2 class="is-heading" style="color:#fff;">
+  НОВАЯ ЖИЗНЬ НАЧИНАЕТСЯ
+  С БЕСПЛАТНОЙ КОНСУЛЬТАЦИИ
+    </h2>
+    <br>
+     <a href="#form">
+      <div style="display:inline-block; padding:10px 15px; background:#fcc419; border-radius:2px; font-size:14px; color:#222;">ПОЛУЧИТЬ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ</div>
+    </a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
